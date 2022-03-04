@@ -3,3 +3,33 @@ description: Terra is a public blockchain protocol deploying a suite of algorith
 repository: https://github.com/blockcoders/terra-subgraph
 schema:
   file: ./schema.graphql
+dataSources:
+  - kind: ethereum/contract
+    name: wLuna
+    network: ropsten
+    source:
+      address: '0xbf51453468771D14cEbdF8856cC5D5145364Cd6F'
+      abi: wLuna
+      startBlock: 12032544
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.5
+      language: wasm/assemblyscript
+      file: ./src/mappings/wLuna.ts
+      entities:
+        - Approval
+        - Burn
+        - OwnershipTransferred
+        - Transfer
+      abis:
+        - name: wLuna
+          file: ./abis/wLuna.json
+      eventHandlers:
+        - event: Approval(indexed address,indexed address,uint256)
+          handler: handleApproval
+        - event: Burn(indexed address,indexed bytes32,uint256)
+          handler: handleBurn
+        - event: OwnershipTransferred(indexed address,indexed address)
+          handler: handleOwnershipTransferred
+        - event: Transfer(indexed address,indexed address,uint256)
+          handler: handleTransfer
