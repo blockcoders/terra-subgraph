@@ -33,3 +33,31 @@ dataSources:
           handler: handleOwnershipTransferred
         - event: Transfer(indexed address,indexed address,uint256)
           handler: handleTransfer
+  - kind: ethereum
+    name: wUST
+    network: ropsten
+    source:
+      address: "0x6cA13a4ab78dd7D657226b155873A04DB929A3A4"
+      abi: wUST
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.5
+      language: wasm/assemblyscript
+      file: ./src/mappings/wUST.ts
+      entities:
+        - Approval
+        - Burn
+        - OwnershipTransferred
+        - Transfer
+      abis:
+        - name: wUST
+          file: ./abis/wUST.json
+      eventHandlers:
+        - event: Approval(indexed address,indexed address,uint256)
+          handler: handleApproval
+        - event: Burn(indexed address,indexed bytes32,uint256)
+          handler: handleBurn
+        - event: OwnershipTransferred(indexed address,indexed address)
+          handler: handleOwnershipTransferred
+        - event: Transfer(indexed address,indexed address,uint256)
+          handler: handleTransfer
