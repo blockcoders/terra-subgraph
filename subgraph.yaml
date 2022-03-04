@@ -1,0 +1,5 @@
+specVersion: 0.0.2
+description: Terra is a public blockchain protocol deploying a suite of algorithmic decentralized stablecoins.
+repository: https://github.com/blockcoders/terra-subgraph
+schema:
+  file: ./schema.graphql

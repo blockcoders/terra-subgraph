@@ -1,0 +1,56 @@
+{
+  "name": "terra-subgraph",
+  "version": "1.0.0",
+  "description": "Terra Money subgraph 📊",
+  "author": "Blockcoders <engineering@blockcoders.io>",
+  "license": "MIT",
+  "readmeFilename": "README.md",
+  "engines": {
+    "node": "^12.x || >=14.x || >=16.x"
+  },
+  "scripts": {
+    "codegen": "graph codegen --output-dir src/types/",
+    "build": "graph build",
+    "lint:ci": "eslint \"{src,apps,libs,test}/**/*.ts\"",
+    "lint": "eslint \"{src,apps,libs,test}/**/*.ts\" --fix",
+    "create-local": "graph create blockcoders/terra --node http://127.0.0.1:8020",
+    "deploy-local": "graph deploy blockcoders/terra --debug --ipfs http://localhost:5001 --node http://127.0.0.1:8020",
+    "deploy": "graph deploy blockcoders/terra-rinkeby --ipfs https://api.thegraph.com/ipfs/ --node https://api.thegraph.com/deploy/ --debug",
+    "deploy-staging": "graph deploy $THE_GRAPH_GITHUB_USER/$THE_GRAPH_SUBGRAPH_NAME /Terra --ipfs https://api.staging.thegraph.com/ipfs/ --node https://api.staging.thegraph.com/deploy/",
+    "watch-local": "graph deploy graphprotocol/Terra --watch --debug --node http://127.0.0.1:8020/ --ipfs http://localhost:5001"
+  },
+  "precommit": [
+    "codegen",
+    "build"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/blockcoders/terra-subgraph.git"
+  },
+  "keywords": [
+    "terra",
+    "terra.js",
+    "terrajs",
+    "terra.money",
+    "blockchain",
+    "graph",
+    "thegraph",
+    "the-graph",
+    "subgraph"
+  ],
+  "bugs": {
+    "url": "https://github.com/blockcoders/terra-subgraph/issues"
+  },
+  "homepage": "https://github.com/blockcoders/terra-subgraph#readme",
+  "devDependencies": {
+    "@graphprotocol/graph-cli": "^0.27.0",
+    "@graphprotocol/graph-ts": "^0.25.0",
+    "@typescript-eslint/eslint-plugin": "^5.13.0",
+    "@typescript-eslint/parser": "^5.13.0",
+    "eslint": "^8.10.0",
+    "eslint-config-prettier": "^8.5.0",
+    "prettier": "^2.5.1",
+    "typescript": "^4.6.2",
+    "pre-commit": "^1.2.2"
+  }
+}
