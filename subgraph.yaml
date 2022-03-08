@@ -21,6 +21,8 @@ dataSources:
         - Burn
         - OwnershipTransferred
         - Transfer
+        - User
+        - Token
       abis:
         - name: wLuna
           file: ./abis/wLuna.json
@@ -33,6 +35,8 @@ dataSources:
           handler: handleOwnershipTransferred
         - event: Transfer(indexed address,indexed address,uint256)
           handler: handleTransfer
+        #- event: Mint(address,uint256)
+        #  handler: handleMint
   - kind: ethereum
     name: wUST
     network: ropsten
@@ -50,6 +54,8 @@ dataSources:
         - Burn
         - OwnershipTransferred
         - Transfer
+        - User
+        - Token
       abis:
         - name: wUST
           file: ./abis/wUST.json
@@ -62,3 +68,5 @@ dataSources:
           handler: handleOwnershipTransferred
         - event: Transfer(indexed address,indexed address,uint256)
           handler: handleTransfer
+        #- event: Mint(address,uint256)
+        #  handler: handleMint

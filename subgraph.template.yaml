@@ -17,6 +17,8 @@ dataSources:
       language: wasm/assemblyscript
       file: ./src/mappings/wLuna.ts
       entities:
+        - User
+        - Token
         - Approval
         - Burn
         - OwnershipTransferred
@@ -46,6 +48,8 @@ dataSources:
       language: wasm/assemblyscript
       file: ./src/mappings/wUST.ts
       entities:
+        - User
+        - Token
         - Approval
         - Burn
         - OwnershipTransferred
