@@ -34,7 +34,7 @@ export function handleBurn(event: BurnEvent): void {
   const burnId = event.transaction.hash.toHex() + '-' + event.logIndex.toString()
   const burn = new Burn(burnId)
   burn.timestamp = event.block.timestamp.toI32()
-  burn.burner = user
+  burn.burner = userId
   burn.amount = event.params.amount
 
   wLuna.save()
@@ -81,8 +81,8 @@ export function handleTransfer(event: TransferEvent): void {
 
   const transferd = event.transaction.hash.toHex() + '-' + event.logIndex.toString()
   const transfer = new Transfer(transferd)
-  transfer.from = userFrom
-  transfer.to = userTo
+  transfer.from = userFromId
+  transfer.to = userToId
   transfer.amount = event.params.value
   transfer.timestamp = event.block.timestamp.toI32()
 
