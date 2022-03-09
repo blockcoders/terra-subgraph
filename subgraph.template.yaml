@@ -10,7 +10,7 @@ dataSources:
     source:
       address: '{{wLunaAddress}}'
       abi: wLuna
-      startBlock: 12030000
+      startBlock: {{lunaStartBlock}}
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.5
@@ -41,7 +41,7 @@ dataSources:
     source:
       address: '{{wUSTAddress}}'
       abi: wUST
-      startBlock: 12030000
+      startBlock: {{ustStartBlock}}
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.5
