@@ -3,7 +3,7 @@ import {
   Burn as BurnEvent,
   OwnershipTransferred as OwnershipTransferredEvent,
   Transfer as TransferEvent,
-} from '../../generated/LUNA/LUNA'
+} from '../types/LUNA/LUNA'
 import { Approval, Burn, OwnershipTransferred, Transfer, Token, User } from '../../generated/schema'
 
 const LUNA = "LUNA"
@@ -85,7 +85,9 @@ export function handleTransfer(event: TransferEvent): void {
   let userTo = User.load(userToId)
   if (!userTo) {
     userTo = new User(userToId)
-    token.totalUsersEver = token.totalUsersEver + 1
+    if (userToId != ZERO_ADDRESS) {
+      token.totalUsersEver = token.totalUsersEver + 1
+    }
   }
   if (userToId != ZERO_ADDRESS) {
     userTo.lunaBalance = userTo.lunaBalance.plus(txAmount)
