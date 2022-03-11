@@ -3,11 +3,10 @@ import {
   Burn as BurnEvent,
   OwnershipTransferred as OwnershipTransferredEvent,
   Transfer as TransferEvent,
-} from '../../generated/wUST/wUST'
+} from '../../generated/UST/UST'
 import { Approval, Burn, OwnershipTransferred, Transfer, Token, User } from '../../generated/schema'
 
 const UST = "UST"
-//const UST_ADDRESS = '0x320bc76961fb4e2a0e2e86d43d4b9d13b4985b8f'
 const ZERO_ADDRESS = '0x0000000000000000000000000000000000000000'
 
 export function handleApproval(event: ApprovalEvent): void {
@@ -36,7 +35,6 @@ const getToken = (tokenName: string): Token => {
 export function handleBurn(event: BurnEvent): void {
   const token = getToken(UST)
   const burnAmount = event.params.amount
-  //token.amount = token.amount.minus(burnAmount)
   token.totalBurned = token.totalBurned.plus(burnAmount)
 
   const userId = event.params._sender.toHex()
@@ -56,11 +54,6 @@ export function handleBurn(event: BurnEvent): void {
   user.txCount = user.txCount + 1
   user.save()
 
-  /*let ustUser = User.load(UST_ADDRESS)
-  if (ustUser) {
-    ustUser.ustBalance = ustUser.ustBalance.minus(burnAmount)
-    ustUser.save()
-  }*/
   token.save()
 }
 
@@ -77,10 +70,6 @@ export function handleTransfer(event: TransferEvent): void {
   transfer.amount = txAmount
   transfer.timestamp = event.block.timestamp.toI32()
   transfer.save()
-
-  /*if (userToId == UST_ADDRESS) { // Mint
-    token.amount = token.amount.plus(txAmount)
-  }*/
 
   let userFrom = User.load(userFromId)
   if (!userFrom) {
