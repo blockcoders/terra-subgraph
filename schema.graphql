@@ -1,25 +1,22 @@
-type Token @entity {
-    id: ID!
-    amount: BigInt!
-    totalBurned: BigInt!
-    totalUsersEver: Int!
+type User @entity {
+  id: ID!
+  lunaBalance: BigInt!
+  ustBalance: BigInt!
+  txCount: Int!
 }
 
-type User @entity {
-    id: ID!
-    wLunaBalance: BigInt!
-    wUSTBalance: BigInt!
-    transferFrom: [Transfer!]! @derivedFrom(field: "from")
-    transfersTo: [Transfer!]! @derivedFrom(field: "to")
-    burns: [Burn!]! @derivedFrom(field: "burner")
-    txCount: Int!
+type Token @entity {
+  id: ID!
+  #amount: BigInt!
+  totalBurned: BigInt!
+  totalUsersEver: Int!
 }
 
 type Transfer @entity {
   id: ID!
   timestamp: Int!
-  from: User!
-  to: User!
+  from: User
+  to: User
   amount: BigInt!
 }
 
@@ -27,13 +24,13 @@ type Approval @entity {
   id: ID!
   owner: Bytes!
   spender: Bytes!
-  value: BigInt!
+  amount: BigInt!
 }
 
 type Burn @entity {
   id: ID!
   timestamp: Int!
-  burner: User!
+  burner: User
   amount: BigInt!
 }
 
