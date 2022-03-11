@@ -5,17 +5,17 @@ schema:
   file: ./schema.graphql
 dataSources:
   - kind: ethereum/contract
-    name: wLuna
+    name: LUNA
     network: {{network}}
     source:
-      address: '{{wLunaAddress}}'
-      abi: wLuna
+      address: '{{lunaAddress}}'
+      abi: LUNA
       startBlock: {{lunaStartBlock}}
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.5
       language: wasm/assemblyscript
-      file: ./src/mappings/wLuna.ts
+      file: ./src/mappings/luna.ts
       entities:
         - User
         - Token
@@ -24,8 +24,8 @@ dataSources:
         - OwnershipTransferred
         - Transfer
       abis:
-        - name: wLuna
-          file: ./abis/wLuna.json
+        - name: LUNA
+          file: ./abis/LUNA.json
       eventHandlers:
         - event: Approval(indexed address,indexed address,uint256)
           handler: handleApproval
@@ -36,17 +36,17 @@ dataSources:
         - event: Transfer(indexed address,indexed address,uint256)
           handler: handleTransfer
   - kind: ethereum
-    name: wUST
+    name: UST
     network: {{network}}
     source:
-      address: '{{wUSTAddress}}'
-      abi: wUST
+      address: '{{ustAddress}}'
+      abi: UST
       startBlock: {{ustStartBlock}}
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.5
       language: wasm/assemblyscript
-      file: ./src/mappings/wUST.ts
+      file: ./src/mappings/ust.ts
       entities:
         - User
         - Token
@@ -55,8 +55,8 @@ dataSources:
         - OwnershipTransferred
         - Transfer
       abis:
-        - name: wUST
-          file: ./abis/wUST.json
+        - name: UST
+          file: ./abis/UST.json
       eventHandlers:
         - event: Approval(indexed address,indexed address,uint256)
           handler: handleApproval
