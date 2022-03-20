@@ -4,7 +4,7 @@ import {
   OwnershipTransferred as OwnershipTransferredEvent,
   Transfer as TransferEvent,
 } from '../types/LUNA/LUNA'
-import { Approval, Burn, OwnershipTransferred, Transfer, Token, User } from '../../generated/schema'
+import { Approval, Burn, OwnershipTransferred, Transfer, Token, User } from '../types/schema'
 
 const LUNA = "LUNA"
 const ZERO_ADDRESS = '0x0000000000000000000000000000000000000000'
