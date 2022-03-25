@@ -1,0 +1,40 @@
+type User @entity {
+  id: ID!
+  lunaBalance: BigInt!
+  ustBalance: BigInt!
+  txCount: Int!
+}
+
+type Token @entity {
+  id: ID!
+  totalBurned: BigInt!
+  totalUsersEver: Int!
+}
+
+type Transfer @entity {
+  id: ID!
+  timestamp: Int!
+  from: User
+  to: User
+  amount: BigInt!
+}
+
+type Approval @entity {
+  id: ID!
+  owner: Bytes!
+  spender: Bytes!
+  amount: BigInt!
+}
+
+type Burn @entity {
+  id: ID!
+  timestamp: Int!
+  burner: User
+  amount: BigInt!
+}
+
+type OwnershipTransferred @entity {
+  id: ID!
+  previousOwner: Bytes!
+  newOwner: Bytes!
+}
