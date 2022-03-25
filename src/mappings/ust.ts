@@ -4,7 +4,7 @@ import {
   OwnershipTransferred as OwnershipTransferredEvent,
   Transfer as TransferEvent,
 } from '../types/UST/UST'
-import { Approval, Burn, OwnershipTransferred, Transfer, Token, User } from '../../generated/schema'
+import { Approval, Burn, OwnershipTransferred, Transfer, Token, User } from '../types/schema'
 
 const UST = "UST"
 const ZERO_ADDRESS = '0x0000000000000000000000000000000000000000'
