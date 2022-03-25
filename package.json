@@ -45,14 +45,14 @@
   },
   "homepage": "https://github.com/blockcoders/terra-subgraph#readme",
   "devDependencies": {
-    "@graphprotocol/graph-cli": "^0.27.0",
-    "@graphprotocol/graph-ts": "^0.25.0",
-    "@typescript-eslint/eslint-plugin": "^5.13.0",
-    "@typescript-eslint/parser": "^5.13.0",
-    "eslint": "^8.10.0",
+    "@graphprotocol/graph-cli": "^0.28.1",
+    "@graphprotocol/graph-ts": "^0.26.0",
+    "@typescript-eslint/eslint-plugin": "^5.15.0",
+    "@typescript-eslint/parser": "^5.15.0",
+    "eslint": "^8.11.0",
     "eslint-config-prettier": "^8.5.0",
     "pre-commit": "^1.2.2",
-    "prettier": "^2.5.1",
+    "prettier": "^2.6.0",
     "typescript": "^4.6.2"
   },
   "dependencies": {
