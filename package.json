@@ -3,8 +3,8 @@
   "version": "1.0.0",
   "description": "Terra Money subgraph 📊",
   "author": "Blockcoders <engineering@blockcoders.io>",
-  "license": "MIT",
   "readmeFilename": "README.md",
+  "license": "MIT",
   "engines": {
     "node": "^12.x || >=14.x || >=16.x"
   },
